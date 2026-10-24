@@ -17,6 +17,30 @@
 
 #let meta = toml("../../metadata.toml")
 
+/// **Description:**
+///
+/// Generates the paratext pages for a musical work, including a title page
+/// and a copyright page.
+///
+/// Configures the document's page layout, typography, and metadata, using
+/// A4 paper, 2.5 cm margins, the Libertinus Serif font, and English as
+/// the document language.
+///
+/// Constructs a `datetime` value from the date specified in the document
+/// metadata and sets the document title, author, and date.
+///
+/// Generates a title page displaying the work's collection, number, title,
+/// instrument designation, author, and date. Generates a copyright page
+/// displaying the copyright notice, license information, and contact details
+/// for permissions inquiries.
+///
+/// **Parameters:**
+/// - `number`: `content` or `none` (the number of the musical work within the collection).
+/// - `title`: `content` or `none` (the title of the musical work).
+/// - `instruments`: `content` or `none` (the instrument or instruments for which the work is written).
+/// - `author`: `content` (the author's name or pseudonym, defaulting to `meta.author.display_name`).
+/// - `legal-name`: `content` (the legal name of the rights holder, defaulting to `meta.author.legal_name`).
+/// - `collection`: `content` (the opus designation to which the work belongs, defaulting to `meta.work.collection`).
 #let paratext(
     number: none,
     title: none,
