@@ -1,18 +1,17 @@
+# ==================================================================================================
+# 
 # Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# ==================================================================================================
 # recipes/scripts/src/scripts/write_pdf_metadata.py
+# ==================================================================================================
+
 import argparse
 import sys
 from pathlib import Path
@@ -20,9 +19,12 @@ from typing import Any
 from pikepdf import Pdf
 from scripts.paths import find_project_root, load_metadata, resolve_piece_path
 
+# ==================================================================================================
+
 _SOURCE_NAME = "merged.pdf"
 _RELEASE_NAME = "release.pdf"
 
+# ==================================================================================================
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """
@@ -58,6 +60,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     return parser.parse_args(argv)
 
+# ==================================================================================================
 
 def _require_str(meta: dict[str, Any], keys: tuple[str, ...]) -> str:
     """
@@ -91,6 +94,7 @@ def _require_str(meta: dict[str, Any], keys: tuple[str, ...]) -> str:
         raise ValueError(f"metadata.toml field must be a string: {path}")
     return current
 
+# ==================================================================================================
 
 def _require_int(meta: dict[str, Any], keys: tuple[str, ...]) -> int:
     """
@@ -124,6 +128,7 @@ def _require_int(meta: dict[str, Any], keys: tuple[str, ...]) -> int:
         raise ValueError(f"metadata.toml field must be an integer: {path}")
     return current
 
+# ==================================================================================================
 
 def _format_publication_date(meta: dict[str, Any]) -> str:
     """
@@ -155,6 +160,7 @@ def _format_publication_date(meta: dict[str, Any]) -> str:
 
     return f"{year:04d}-{month:02d}-{day:02d}"
 
+# ==================================================================================================
 
 def write_release_pdf(piece_dir: str, title: str) -> Path:
     """
@@ -222,6 +228,7 @@ def write_release_pdf(piece_dir: str, title: str) -> Path:
     output.save(release_path, min_version=version)
     return release_path
 
+# ==================================================================================================
 
 def main(argv: list[str] | None = None) -> int:
     """
@@ -252,6 +259,9 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     return 0
 
+# ==================================================================================================
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# ==================================================================================================

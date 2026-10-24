@@ -1,6 +1,26 @@
+<!--    
+    ================================================================================================
+    
+    Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+    
+    Dedicated to the public domain under the Creative Commons
+    CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+    You may obtain a copy of the Dedication at
+    
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+    ================================================================================================
+    docs/02-project-structure.md
+    ================================================================================================
+-->
+
 # II. Detailed Project Structure
 
 > *This document describes the logical organization of the project codebase as a Pixi workspace for the PDF release pipeline.*
+
+<!--    
+    ================================================================================================
+-->
 
 ## Repository Layout
 
@@ -24,22 +44,30 @@ score-forge-opus-one/
 │   ├── scripts/        # PDF pipeline CLIs (pixi-build-python recipe).
 │   └── musescore/      # MuseScore 3.7.0 (rattler-build recipe).
 │
+│
+├── LICENSES/           # Full texts of all licenses used in the project.
+│   │
+│   ├── Apache-2.0.txt  # Apache License, Version 2.0.
+│   ├── CC-BY-4.0.txt   # Creative Commons Attribution 4.0 International
+│   │                   # Public License.
+│   └── CC0-1.0.txt     # Creative Commons CC0 1.0 Universal Public Domain
+│                       # Dedication.
+│
+├── LICENSE.txt         # Licensing overview: states which license applies
+│                       # to which files; refers to `LICENSES/`.
+│
 ├── metadata.toml       # Shared release metadata (used by workspace CLIs).
 │
 ├── pixi.toml           # Workspace manifest: channels, dependencies, and tasks.
 │
-├── pixi.lock           # Fully resolved and reproducible dependency lockfile.
-│
-├── LICENSE-CC-BY-4.0   # Full text of the Creative Commons Attribution 4.0
-│                       # International License.
-│
-├── LICENSE-APACHE-2.0  # Full text of the Apache License, Version 2.0.
-│
-└── NOTICE              # Preferred attribution when reusing Apache-2.0 licensed
-                        # portions of this project.
+└── pixi.lock           # Fully resolved and reproducible dependency lockfile.
 ```
 
 Source files are documented with detailed docstrings and/or inline comments to explain the code.
+
+<!--    
+    ================================================================================================
+-->
 
 ## Workspace Overview
 
@@ -58,6 +86,10 @@ paratext/
 └── 02-copyright-page.typ   # Copyright and license page (© line, CC BY 4.0 notice,
                             # rights-holder contact).
 ```
+
+<!--    
+    ================================================================================================
+-->
 
 ### 2. `composizioni/Op-1_No-*/`
 
@@ -81,6 +113,10 @@ Op-1_No-1_Believe/
 
 > **Note:**  
 > `score.pdf`, `paratext.pdf`, `merged.pdf`, and `release.pdf` are generated artifacts and are gitignored. After a fresh clone only `score.mscz` and `paratext.typ` are present until the PDF release pipeline is run.
+
+<!--    
+    ================================================================================================
+-->
 
 ### 3. `recipes/scripts/`
 
@@ -111,6 +147,10 @@ scripts/
 
 All three CLIs accept a bare piece directory name (for example `Op-1_No-1_Believe`) and resolve paths relative to the workspace root. They expect the fixed file names from the piece layout above — `paratext.typ`, `score.pdf`, `paratext.pdf`, `merged.pdf`, and `release.pdf` — and will fail if those names are missing or renamed. They share `paths.py` for consistent project-root discovery and `metadata.toml` access.
 
+<!--    
+    ================================================================================================
+-->
+
 ### 4. `recipes/musescore/`
 
 Conda packaging recipe for MuseScore 3.7.0. Provides the `mscore` binary (with `musescore` and `musescore3` symlinks) for exporting `score.mscz` to `score.pdf`.
@@ -125,3 +165,7 @@ musescore/
                         # reduce OOM risk; installs `mscore` and symlinks `musescore` and
                         # `musescore3` into PREFIX/bin.
 ```
+
+<!--    
+    ================================================================================================
+-->

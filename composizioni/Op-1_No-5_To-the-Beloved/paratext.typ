@@ -1,18 +1,16 @@
+// =================================================================================================
+//
 // Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Dedicated to the public domain under the Creative Commons
+// CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+// You may obtain a copy of the Dedication at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+// https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
+// =================================================================================================
 // composizioni/Op-1_No-5_To-the-Beloved/paratext.typ
+// =================================================================================================
 
 #import "../paratext/lib.typ": paratext
 
@@ -21,3 +19,5 @@
     title: "To the Beloved",
     instruments: [Piano, Soprano, and Contralto],
 )
+
+// =================================================================================================

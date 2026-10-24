@@ -1,8 +1,22 @@
+# ==================================================================================================
+#
+# Copyright (c) 2026 Ilya Snegov (aka Sierra Arn)
+#
+# Dedicated to the public domain under the Creative Commons
+# CC0 1.0 Universal Public Domain Dedication (the "Dedication").
+# You may obtain a copy of the Dedication at
+#
+# https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+#
+# ==================================================================================================
 # metadata.toml
+# ==================================================================================================
+
+# --------------------------------------------------------------------------------------------------
 
 # Shared metadata for PDF scores of «Sierra Arn — Composizioni, Op. 1».
 # Read by `composizioni/paratext/lib.typ` and the `write-pdf-metadata` CLI.
-#
+
 # | Field                   | Consumer              | Output |
 # |-------------------------|-----------------------|--------|
 # | author.display_name     | lib.typ               | Title page; copyright page |
@@ -19,6 +33,8 @@
 # | license.url             | lib.typ               | Copyright page (license link) |
 # | license.notice          | write-pdf-metadata    | release.pdf `dc:rights` |
 # | tools.musescore_creator | write-pdf-metadata    | release.pdf `xmp:CreatorTool` |
+
+# --------------------------------------------------------------------------------------------------
 
 [author]
 display_name = "Sierra Arn"
@@ -41,3 +57,5 @@ notice = "Copyright (c) 2026 Ilya Snegov (aka Sierra Arn). Licensed under CC BY 
 
 [tools]
 musescore_creator = "Sierra Arn (via MuseScore 3.7.0)"
+
+# ==================================================================================================
